@@ -5,6 +5,8 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HRS = 4;
 const FULL_TIME_HRS = 8;
 const WAGE_PER_HR = 20;
+const NUM_OF_WORKING_DAYS = 20;
+let totalEmpHrs = 0;
 function getWorkingHRs(empCheck)
 {
    switch (empCheck)
@@ -22,8 +24,12 @@ function getWorkingHRs(empCheck)
       return 0;
    }
 }
-//let  empHrs = 0;
+//UC4-Using repetaions forloop 
 let empCheck = Math.floor(Math.random() * 10) % 3;
 let empHrs = getWorkingHRs(empCheck);
-let empWage = empHrs * WAGE_PER_HR;
-console.log( " empHrs: " + empHrs +" ;"+ "empwage :"+empWage);
+for(let day = 0; day < NUM_OF_WORKING_DAYS; day++)
+{
+   totalEmpHrs += getWorkingHRs(empCheck);
+}
+let empWage = totalEmpHrs * WAGE_PER_HR;
+console.log( " Hrs: "+ totalEmpHrs +";"+ "empwage :"+empWage);
