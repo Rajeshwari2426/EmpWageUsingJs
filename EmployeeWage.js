@@ -6,7 +6,9 @@ const PART_TIME_HRS = 4;
 const FULL_TIME_HRS = 8;
 const WAGE_PER_HR = 20;
 const NUM_OF_WORKING_DAYS = 20;
+const MAX_HRS_IN_MONTH = 160;
 let totalEmpHrs = 0;
+let totalWorkingdays = 0;
 function getWorkingHRs(empCheck)
 {
    switch (empCheck)
@@ -24,12 +26,17 @@ function getWorkingHRs(empCheck)
       return 0;
    }
 }
-//UC4-Using repetaions forloop 
+//Using repetaions whileloop to get Totalworking days
 let empCheck = Math.floor(Math.random() * 10) % 3;
 let empHrs = getWorkingHRs(empCheck);
-for(let day = 0; day < NUM_OF_WORKING_DAYS; day++)
+while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingdays < NUM_OF_WORKING_DAYS)
 {
+   totalWorkingdays++;  
    totalEmpHrs += getWorkingHRs(empCheck);
 }
 let empWage = totalEmpHrs * WAGE_PER_HR;
-console.log( " Hrs: "+ totalEmpHrs +";"+ "empwage :"+empWage);
+console.log( "total workingdays: "+totalWorkingdays+ "  total empHrs: "+ totalEmpHrs + "  empwage : "+empWage);
+   
+   
+
+   
